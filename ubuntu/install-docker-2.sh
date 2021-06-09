@@ -25,7 +25,7 @@ function init_docker() {
     systemctl enable docker.service
     systemctl start docker.service
     systemctl stop docker.service
-    echo '{"registry-mirrors": ["https://4xr1qpsp.mirror.aliyuncs.com"]}' > /etc/docker/daemon.json
+    echo '{"registry-mirrors": ["https://4xr1qpsp.mirror.aliyuncs.com"],"exec-opts": ["native.cgroupdriver=systemd"]}' > /etc/docker/daemon.json
     systemctl daemon-reload
     systemctl start docker
 }

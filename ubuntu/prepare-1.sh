@@ -1,12 +1,14 @@
 #!/usr/bin/env bash
 
+host_name=$1
+
 function check_command() {
    echo $(command_path=`command -v $1` && echo "true" || echo "false")
 }
 
 function set_hostname() {
- echo $MASTER_HOST_NAME > /etc/hostname
- echo "127.0.0.1 $MASTER_HOST_NAME" >> /etc/hosts
+ echo $host_name > /etc/hostname
+ echo "127.0.0.1 $host_name" >> /etc/hosts
 }
 
 function shut_firewall() {

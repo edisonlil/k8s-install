@@ -38,7 +38,7 @@ for imageName in ${images[@]} ; do
   if [[ $coredns_images_name == $imageName ]]
   then
     docker pull "${ALIYUN_URL}/coredns:${CORE_DNS_VERSION:1}"
-    docker tag  $ALIYUN_URL/$imageName ${GCR_URL}/"coredns"/${imageName}
+    docker tag  "${ALIYUN_URL}/coredns:${CORE_DNS_VERSION:1}" ${GCR_URL}/"coredns"/${imageName}
     docker rmi  "${ALIYUN_URL}/coredns:${CORE_DNS_VERSION:1}"
   else
     docker pull $ALIYUN_URL/$imageName

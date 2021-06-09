@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+echo "--------------------------------下載鏡像-------------------------------------"
+
 versions=`kubeadm config images list --kubernetes-version "v$K8S_VERSION"`
 apiserver_version_tmp=`echo $versions | sed 's/ /\n/g'| grep k8s.gcr.io/kube-apiserver`
 pause_version_tmp=`echo $versions | sed 's/ /\n/g'| grep k8s.gcr.io/pause`

@@ -21,9 +21,9 @@ function install_k8s() {
    #为空使用默认版本
    version=`apt-cache madison kubelet kubeadm kubectl | grep kubeadm | awk 'NR==1{print $3}'`
    apt-get install -y kubeadm=$version kubectl=$version kubelet=$version && systemctl enable --now kubelet
-   export K8S_VERSION=`echo $version | sed "s/-00//g"`
+   export K8S_VERSION="v$(echo $version | sed "s/-00//g")"
  else
-   version="${version:1}-00"
+   version="${version}-00"
    apt-get install -y kubeadm=$version kubectl=$version kubelet=$version && systemctl enable --now kubelet
  fi
 

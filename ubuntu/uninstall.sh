@@ -13,3 +13,4 @@ rm -rf /var/lib/cni/
 rm -rf /var/lib/kubelet/*
 rm -rf /etc/cni
 
+apt remove kubeadm kubectl kubelet

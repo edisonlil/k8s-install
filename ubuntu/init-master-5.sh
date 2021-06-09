@@ -1,4 +1,6 @@
 
+echo "-------------------------------初始化主節點-------------------------------------"
+
 kubeadm init \
  --apiserver-advertise-address $MASTER_IP \
  --kubernetes-version=$K8S_VERSION \

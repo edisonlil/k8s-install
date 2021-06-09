@@ -30,6 +30,7 @@ function init_docker() {
     systemctl start docker
 }
 
+echo "--------------------------------開始安裝docker-------------------------------------"
 
 add_gpg_key
 set_stable_version

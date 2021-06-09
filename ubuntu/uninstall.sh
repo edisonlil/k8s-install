@@ -12,3 +12,4 @@ rm -rf /usr/bin/kube*
 rm -rf /var/lib/cni/
 rm -rf /var/lib/kubelet/*
 rm -rf /etc/cni
+

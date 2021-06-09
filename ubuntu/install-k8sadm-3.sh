@@ -23,7 +23,7 @@ function install_k8s() {
    apt-get install -y kubeadm=$version kubectl=$version kubelet=$version && systemctl enable --now kubelet
    export K8S_VERSION=`echo $version | sed "s/-00//g"`
  else
-   version="${version}-00"
+   version="${version:1}-00"
    apt-get install -y kubeadm=$version kubectl=$version kubelet=$version && systemctl enable --now kubelet
  fi
 

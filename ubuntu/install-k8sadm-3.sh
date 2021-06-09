@@ -16,11 +16,17 @@ EOF
 
 function install_k8s() {
 
- if test -z $K8S_VERSION; then
+ version=$K8S_VERSION
+ if test -z $version; then
    #为空使用默认版本
-   K8S_VERSION=`apt-cache madison kubelet kubeadm kubectl | grep kubeadm | awk 'NR==1{print $2}'`
+   version=`apt-cache madison kubelet kubeadm kubectl | grep kubeadm | awk 'NR==1{print $3}'`
+   apt-get install -y kubeadm=$version kubectl=$version kubelet=$version && systemctl enable --now kubelet
+   export K8S_VERSION=`echo $version | sed "s/-00//g"`
+ else
+   version="${version}-00"
+   apt-get install -y kubeadm=$version kubectl=$version kubelet=$version && systemctl enable --now kubelet
  fi
- apt-get install -y kubeadm=$K8S_VERSION kubectl=$K8S_VERSION kubelet=$K8S_VERSION && systemctl enable --now kubelet
+
 }
 
 add_sources

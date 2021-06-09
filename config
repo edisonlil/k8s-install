@@ -1,4 +1,4 @@
 MASTER_HOST_NAME=?host
 MASTER_IP=?ip
-K8S_VERSION=?version
+K8S_VERSION=v1.21.1
 
